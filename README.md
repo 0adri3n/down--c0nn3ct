@@ -11,7 +11,7 @@ An online MarkDown editor &amp; previewer
 
 <h2>Step 1 :</h2>
 
-Download last release <a href="https://github.com/akira-trinity/0adri3n/releases">here</a> and unzip it!
+Download last release <a href="https://github.com/0adri3n/releases">here</a> and unzip it!
 
 <h2>Step 2 :</h2>
 
