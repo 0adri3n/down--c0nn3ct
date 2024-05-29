@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>down-c0nn3ct</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/img/logo.ico') }}">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/md-render.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" />
+
+    <!-- Editor -->
+    <script src="{{ url_for('static', filename='assets/js/external/ace.js') }}"></script>
+
+    <!-- Decode use -->
+    <script src="{{ url_for('static', filename='assets/js/external/base64.min.js') }}"></script>
+
+    <!-- Marked -->
+    <script src="{{ url_for('static', filename='assets/js/external/marked.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/external/marked.umd.js') }}"></script>
+    <!-- MARKED EXTENSIONS -->
+    <!-- Katex -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/katex.min.css') }}">      
+    <script src="{{ url_for('static', filename='assets/js/external/katex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/external/auto-render.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/external/katex_index.umd.min.js') }}"></script>
+
+    <!-- Highlight (code) -->
+    <script src="{{ url_for('static', filename='assets/js/external/md-hl_index.umd.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/md-highlight.css') }}" />
+    <script src="{{ url_for('static', filename='assets/js/external/highlight.js') }}"></script>
+
+    <!-- Embed on share -->
+    <meta property="og:title" content="down-c0nn3ct" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://down-c0nn3ct.onrender.com" />
+    <meta property="og:description" content="down-c0nn3ct : the best MarkDown editor & visualizer on the web." />
+    <meta name="theme-color" content="#282a36">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-dark text-white fixed-top">
+        <h1 class="m-0"><a href="/" id="title">down-c0nn3ct</a></h1>
+        <div>
+            <button id="docButton" onmouseover="this.querySelector('a').style.color='black'" onmouseout="this.querySelector('a').style.color='white'" class="btn btn-outline-light mr-2"><a href="/documentation" style="color: white !important; text-decoration: none !important;" target="_blank">Documentation</a></button>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <script>alert("{{ message }}")</script>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div id="content-div" class="container-fluid content">
+        <div class="row flex-column flex-md-row h-100">
+            <div class="col-12 col-md-6 h-100 p-0">
+                <div id="editor-buttons" class="editor-top-bar">
+                    <button id="previewToggle" class="btn btn-outline-light d-md-none" title="Toggle preview"><img id="eyeimg" src="{{ url_for('static', filename='assets/img/eyeclose.png') }}"></button>
+                    <button id="copyButton" class="btn btn-outline-light" title="Copy content"><img src="{{ url_for('static', filename='assets/img/copy.png') }}"></button>
+                    <button id="dlButton" class="btn btn-outline-light" title="Download content"><img src="{{ url_for('static', filename='assets/img/dl.png') }}"></button>
+                    <button id="importButton" class="btn btn-outline-light" title="Import file"><img src="{{ url_for('static', filename='assets/img/import.png') }}"></button>
+
+                    <div class="button-group-h4sh">
+                        <form id="saveForm" action="{{ url_for('save') }}" method="POST">
+                            <input type="hidden" name="editor_content" id="editor_content">
+                            <button id="saveh4shTech" class="btn btn-outline-light" onclick="saveContent()">Save with H4sh Tech™</button>
+                        </form>
+                        <form id="openForm" action="{{ url_for('open') }}" method="POST">
+                            <input type="hidden" name="hash_value" id="hash_value">
+                            <button id="openh4shTech" class="btn btn-outline-light" onclick="openContent()">Open from H4sh Tech™</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div id="editor" class="h-100"></div>
+
+                    {% if loaded == "true" %}
+                        <script>
+                            function convertStringToList(str) {
+                                let cleanedString = str.replace(/[\[\]\s]/g, '');
+                                let stringArray = cleanedString.split(',');
+                                let numberArray = stringArray.map(Number);
+                                return numberArray;
+                            }
+                            var editor = ace.edit("editor");
+                            var encoded_content = "{{ opened_content }}";
+                            var clear_content = Base64.decode(Base64.fromUint8Array(new Uint8Array(convertStringToList(encoded_content))));
+                            editor.setValue(clear_content)
+                        </script>
+                    {% else %}
+                        <script>
+                            var editor = ace.edit("editor");
+                            const placeholder = `# Welcome to down-c0nn3ct !
+
+## a cool MarkDown online editor :)
+### best way to create documents
+
+\`\`\`javascript
+// this is a function:
+
+function square(number) {
+  return number * number;
+}
+\`\`\`
+  
+**bold** text
+_italic_ text
+**_both!_**
+~~crossed out~~.
+
+- Distance euclidienne :
+
+$$d = \\sqrt{\\sum_{ki=1}^n(x_i - y_i)^2}$$
+
+| Variables | Significations |
+|-----------|----------------|
+| _i_      | Indice de l'observation            |
+| _n_       | Nombre d'observations             |
+| _x<sub>i</sub>_    | Paramètre d'entrée : variable d'entrée         |
+| _y<sub>i</sub>_     | Réponse/variable dépendante réelle observée           |
+| _ŷ<sub>i</sub>_     | Réponse estimée (prédite) par régression linéaire           |
+
+[link](https://github.com/0adri3n)
+> Block Quotes!
+
+
+- \`<ul></ul>\`
+  - with bullets.
+     - indented.
+
+
+1. \`<ol></ol>\`
+1. once started  
+1. use whatever 
+- you
+* want
+
+embedded images:
+
+![0adri3n pfp](https://avatars.githubusercontent.com/u/62818208?v=4)
+`
+                            editor.setValue(placeholder);
+                        </script>
+                    {% endif %}
+
+            </div>
+            <div class="col-12 col-md-6 h-100 p-0 border-left">
+                <div id="output" class="h-100 p-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center p-3 bg-dark text-white fixed-bottom">
+        &copy; 2024 <a id="footer-title" >down-c0nn3ct</a>. All rights reserved. made with ❤ by 0adri3n
+    </footer>
+
+
+    <!-- Main Script ! -->
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+
+</body>
+
+</html>

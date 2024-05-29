@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="{{ url_for('static', filename='assets/img/logo.ico') }}" rel="icon" />
+    <title>down-c0nn3ct | Documentation</title>
+
+    <!-- Embed on share -->
+    <meta property="og:title" content="down-c0nn3ct | Documentation" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://down-c0nn3ct.onrender.com/documentation"/>
+    <meta property="og:description" content="down-c0nn3ct | Documentation : the best MarkDown editor & visualizer on the web." />
+    <meta name="theme-color" content="#282a36">
+
+
+  <!-- Stylesheet
+  ============================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/documentation/vendor/bootstrap/css/bootstrap.min.css') }}" />
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/documentation/vendor/font-awesome/css/all.min.css') }}" />
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/documentation/vendor/magnific-popup/magnific-popup.min.css') }}" />
+  <!-- Highlight Syntax -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/documentation/vendor/highlight.js/styles/github.css') }}" />
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/documentation/css/stylesheet.css') }}" />
+  </head>
+
+  <body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- Preloader End --> 
+
+  <!-- Document Wrapper   
+  =============================== -->
+  <div id="main-wrapper"> 
+    
+    <!-- Header
+    ============================ -->
+    <header id="header" class="sticky-top"> 
+      <!-- Navbar -->
+      <nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
+        <div class="container-fluid">
+          <!-- Sidebar Toggler -->
+      <button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+      
+      <!-- Logo --> 
+          <a class="logo ml-md-3" href="index.html" title="down-c0nn3ct Documentation"><img src="{{ url_for('static', filename='assets/documentation/images/logo.ico') }}" width="25px"></img></a> 
+      <span class="text-2 text-light ml-2">down-c0nn3ct | v1.0</span> 
+          <!-- Logo End -->
+          
+      <!-- Navbar Toggler -->
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+          
+      <div id="header-nav" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li><a target="_blank" href="https://github.com/0adri3n/down-c0nn3ct/issues">Issues</a></li>
+            </ul>
+          </div>
+          <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+            <li class="social-icons-github"><a data-toggle="tooltip" href="https://github.com/0adri3n" target="_blank" title="" data-original-title="Github"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Navbar End --> 
+    </header>
+    <!-- Header End --> 
+    
+    <!-- Content
+    ============================ -->
+    <div id="content" role="main">
+      
+    <!-- Sidebar Navigation
+    ============================ -->
+    <div class="idocs-navigation bg-light">
+        <ul class="nav flex-column ">
+          <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#idocs_what_dc">What is down-c0nn3ct</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_what_md">What is MarkDown</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_why_md">Why MarkDown</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_local">Host it locally</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#idocs_w_md">Writing MarkDown</a>
+            <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#idocs_b_md">Basic MarkDown</a></li>
+        <li class="nav-item"><a class="nav-link" href="#idocs_katex">KaTex</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#idocs_ht">H4sh Tech™</a>
+        <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#idocs_gtk">Get to know it !</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_ht_ui">Use it</a></li>
+            </ul>
+      </li>
+          <li class="nav-item"><a class="nav-link" href="#idocs_copy">Functions</a>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a class="nav-link" href="#idocs_copy">Copy content</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_dl">Download content</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_imp">Import content</a></li>
+              <li class="nav-item"><a class="nav-link" href="#idocs_exp">Export as PDF/PNG (Need help!)</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#idocs_support">Support</a></li>
+
+        </ul>
+      </div>
+      
+      <!-- Docs Content
+    ============================ -->
+      <div class="idocs-content">
+        <div class="container"> 
+          
+          <!-- Getting Started
+      ============================ -->
+          <section id="idocs_start">
+          <h1>Documentation</h1>
+          <h2>down-c0nn3ct</h2>
+          <p class="lead">Welcome to the docs ! I'll try to make it clear and easy for you.</p>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6 col-lg-4">
+          <ul class="list-unstyled">
+            <li><strong>Version:</strong> 1.0</li>
+            <li><strong>Author:</strong> <a href="https://github.com/0adri3n/" target="_blank">0adri3n</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <ul class="list-unstyled">
+            <li><strong class="font-weight-700">Created:</strong> 20 May, 2024</li>
+          </ul>
+        </div>
+      </div>
+          <p class="alert alert-info">Need help ? Check out the <a target="_blank" href="https://github.com/0adri3n/down-c0nn3ct/issues">Github</a>. If down-c0nn3ct becomes more widely used, I'll build a Discord or a forum :)</p>
+          </section>
+          
+      <hr class="divider">
+      
+    <!-- What is down-c0nn3ct ?
+          ============================ -->
+          <section id="idocs_what_dc">
+            <h2>What is down-c0nn3ct ?</h2>
+            <p>down-c0nn3ct is an online MarkDown editor with an integrated-preview, lightweight and newbie-friendly.</p>
+          </section>
+          
+      <hr class="divider">
+
+          <!-- What is MarkDown ?
+      ============================ -->
+          <section id="idocs_what_md">
+            <h2>What is MarkDown ?</h2>
+            <p class="lead">For the newbies, a little definition :</p>
+            
+            <p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.</p>
+          </section>
+          
+      <hr class="divider">
+      
+          <!-- Why MarkDown
+      ============================ -->
+          <section id="idocs_why_md">
+            <h2>Why MarkDown ?</h2>
+            
+            <p>Because it's fun and easy-to-use ! You don't need any programming knowledge to use it, and I promise you can learn it in 10 minutes.</p>
+            <p>It's one the best way to create documents to learn or take notes at school or at work.</p>
+          </section>
+          
+      <hr class="divider">
+
+          <!-- Host it locally
+      ============================ -->
+      <section id="idocs_local">
+        <h2>Host it locally</h2>
+        
+        <p>You may want to keep your data private, just for you. Good news, down-c0nn3ct is open-source !</p>
+        <p>You can see how to setup it <a href="https://github.com/0adri3n/down-c0nn3ct" target="_blank">here</a>. It's not hard but you still need some fundamentals in Python :)</p>
+      </section>
+      
+  <hr class="divider">
+        
+      <!-- Writting MarkDown
+      ============================ -->
+      <section id="idocs_w_md">
+        <h2>Writting MarkDown</h2>
+        <p>Writting MarkDown is easy but I'll provide you some links to externals documentations.</p>
+      </section>
+      
+        <hr class="divider">
+
+
+      <!-- Basic MarkDown
+      ============================ -->
+          <section id="idocs_b_md">
+            <h2>Basic MarkDown</h2>
+            <p>I recommended you two docs : <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">MarkDownGuide</a> and the <a href="https://docs.github.com/fr/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Github</a> docs.</p>
+          </section>
+          
+      <hr class="divider">
+      
+      <!-- KaTex
+      ============================ -->
+          <section id="idocs_katex">
+            <h2>KaTex</h2>
+            <p>KaTex is a math typesetting library for the web, so I integrated it into my MarkDown previewer. Their <a href="https://katex.org/docs/supported.html" target="_blank">docs</a> is simple and complete.</p>
+          </section>
+          
+      <hr class="divider">
+      
+      <!-- H4sh Tech™
+      ============================ -->
+          <section id="idocs_ht">
+            <h2>H4sh Tech™</h2>
+            <p>What is this ? It's a storage system that I thinked about to avoid the creation of account.</p>
+          </section>
+          
+      <hr class="divider">
+      
+          <!-- Get to know it !
+      ============================ -->
+          <section id="idocs_gtk">
+            <h2>Get to know it !</h2>
+            <p>Basically, H4sh Tech™ just identify your file with a fully random hash when added to the database.</p>
+            <p>Thanks to this, each file are fully-private and non-accessible by others</p>
+          </section>
+      
+          
+      <hr class="divider">
+      
+      <!-- Use it !
+      ============================ -->
+          <section id="idocs_ht_ui">
+            <h2>Use it</h2>
+            <p>You just save your file and note the returned hash ! Saving your hash can be done by noting it down on your Discord server, a note, a WhatsApp message and many other way.</p>
+            <p>The benefits of H4sh Tech™ is that you can even share your file to your friends thanks to the hash ! Certainly, if your friend modifies your original file, you won't see it but he can share you a new hash.</p>
+            <p>I recognize that this system is clearly storage-expensive and is not economic at all, but the database will be cleared every 2 months I think. Trying to balance this system a bit, I compress the file's content in the database.</p>
+          </section>
+      
+      
+      <hr class="divider">
+
+          <!-- Copy Content
+      ============================ -->
+          <section id="idocs_copy">
+            <h2>Copy content</h2>
+            <pre><code>Copy editor's content into your clipboard (MD text).</code></pre>
+          </section>
+
+      <hr class="divider">
+
+          <!-- Download Content
+      ============================ -->
+          <section id="idocs_dl">
+            <h2>Download content</h2>
+            <pre><code>Download editor's content as a .md file.</code></pre>
+          </section>
+
+    <hr class="divider">
+
+          <!-- Import Content
+      ============================ -->
+          <section id="idocs_imp">
+            <h2>Import content</h2>
+            <pre><code>Import into editor an external .md file</code></pre>
+          </section>
+      
+      <hr class="divider">
+
+          <!-- Export as PDF/PNG
+      ============================ -->
+      <section id="idocs_exp">
+        <h2>Export as PDF/PNG</h2>
+        <p class="lead">I tried a lot to create this function but I had problems like it couldn't take the whole preview into the PDF/PNG. I need help ! Please consider create this function and fork on <a href="https://github.com/0adri3n/down-c0nn3ct">Github</a> !</p>
+        <pre><code>Export preview as a PDF or a PNG.</code></pre>
+      </section>
+  
+  <hr class="divider">
+      
+      
+      <!-- Support
+      ============================ -->
+          <section id="idocs_support">
+            <h2>Support</h2>
+            <p>If this documentation doesn't answer your questions, please contact me via Discord (0akira) or through <a class="btn btn-primary" target="_blank" href="https://github.com/0adri3n/down-c0nn3ct">down-c0nn3ct Github</a> issues</p>
+            <div class="alert alert-warning mb-4"><span class="badge badge-danger text-uppercase">Note:</span> While I aim to provide the best support possible, please keep in mind that I'm the only developer and this is a side project :)</div>
+        <h4>Don’t forget to star the repository !
+        <i class="fas fa-star text-warning"></i>
+        </h4>
+          </section>
+      
+      <hr class="divider">
+           
+          <!-- Changelog
+      ============================ -->
+      
+          <!-- <section id="idocs_changelog">
+            <h2>Changelog</h2>
+            <p class="text-4">See what's new added, changed, fixed, improved or updated in the latest versions. </p>
+        <p class="alert alert-info mb-5"> For Future Updates Follow Us <a target="_blank" href="http://themeforest.net/user/harnishdesign?ref=HarnishDesign">@themeforest</a> / <a target="_blank" href="http://facebook.com/harnishdesign">@facebook</a> / <a target="_blank" href="http://twitter.com/harnishdesign">@twitter</a> / <a target="_blank" href="https://dribbble.com/harnishdesign">@Dribbble</a></p>
+            
+        <h3 id="v1-1">Version 1.1 <small class="text-muted">(12 Oct, 2020)</small></h3>
+            <ul class="changelog">
+              <li><span class="badge badge-success">Added</span> Your information here for added new feature</li>
+              <li><span class="badge badge-danger">Fixed</span> Some minor bugs for browser compatibility</li>
+        <li><span class="badge badge-danger">Fixed</span> Some minor bugs for responsive</li>
+              <li><span class="badge badge-info">Updated</span> FontAwesome to Latest Version</li>
+        <li><span class="badge badge-info">Updated</span> Bootstrap to Latest Version</li>
+        <li><span class="badge badge-info">Updated</span> Improvements in CSS and JS</li>
+            </ul> -->
+                
+            <h3 id="v1-0">Version 1.0 <small class="text-muted">(31 May, 2024)</small></h3>
+            <p>Initial Release</p>
+          </section>        
+          
+        </div>
+      </div>
+    
+    </div>
+    <!-- Content end --> 
+    
+    <!-- Footer
+    ============================ -->
+    <footer id="footer" class="section bg-dark footer-text-light">
+      <div class="container">
+        <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+          <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+          <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+          <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+        </ul>
+        <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+      <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+      <p class="text-2 text-center mb-0">Please consider checking out his work. This is NOT my documentation template !</p>
+    </div>
+    </footer>
+    <!-- Footer end -->
+    
+  </div>
+  <!-- Document Wrapper end --> 
+
+  <!-- Back To Top --> 
+  <a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+  <!-- JavaScript
+  ============================ -->
+  <script src="{{ url_for('static', filename='assets/documentation/vendor/jquery/jquery.min.js') }}"></script> 
+  <script src="{{ url_for('static', filename='assets/documentation/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> 
+  <!-- Highlight JS -->
+  <script src="{{ url_for('static', filename='assets/documentation/vendor/highlight.js/highlight.min.js') }}"></script> 
+  <!-- Easing --> 
+  <script src="{{ url_for('static', filename='assets/documentation/vendor/jquery.easing/jquery.easing.min.js') }}"></script> 
+  <!-- Magnific Popup --> 
+  <script src="{{ url_for('static', filename='assets/documentation/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script> 
+  <!-- Custom Script -->
+  <script src="{{ url_for('static', filename='assets/documentation/js/theme.js') }}"></script>
+</body>
+</html>
