@@ -8,7 +8,7 @@ An online MarkDown editor &amp; previewer
 
 # ❓ How to use it 
 
-<h2>You can find some documentation <a href="https://0adri3n.github.io/down--c0nn3ct/documentation/index.html">here</a> to get some help !</h2>
+<h2>You can find some documentation <a href="https://0adri3n.github.io/down-c0nn3ct/documentation/index.html">here</a> to get some help !</h2>
 
 # 🏠 Want it locally ?
 
@@ -16,7 +16,7 @@ An online MarkDown editor &amp; previewer
 
 <h2>Step 1 :</h2>
 
-Download the lastest release <a href="https://github.com/0adri3n/down--c0nn3ct/releases">here</a> and unzip it!
+Download the lastest release <a href="https://github.com/0adri3n/down-c0nn3ct/releases">here</a> and unzip it!
 
 <h2>Step 2 :</h2>
 
