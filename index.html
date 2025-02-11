@@ -4,34 +4,38 @@
 <head>
     <meta charset="utf-8">
     <title>down-c0nn3ct</title>
-    <link rel="icon" type="image/x-icon" href="static/assets/img/logo.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.ico">
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="static/assets/css/style.css" />
-    <link rel="stylesheet" href="static/assets/css/md-render.css" />
-    <link rel="stylesheet" href="static/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/md-render.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
 
     <!-- Editor -->
-    <script src="static/assets/js/external/ace.js"></script>
+    <script src="assets/js/external/ace.js"></script>
 
     <!-- Decode use -->
-    <script src="static/assets/js/external/base64.min.js"></script>
+    <script src="assets/js/external/base64.min.js"></script>
+
+    <!-- H4sh Tech v2 use -->
+    <script src="assets/js/external/base58.js"></script> 
+    <script src="assets/js/external/lzma.min.js"></script>
 
     <!-- Marked -->
-    <script src="static/assets/js/external/marked.min.js"></script>
-    <script src="static/assets/js/external/marked.umd.js"></script>
+    <script src="assets/js/external/marked.min.js"></script>
+    <script src="assets/js/external/marked.umd.js"></script>
     <!-- MARKED EXTENSIONS -->
     <!-- Katex -->
-    <link rel="stylesheet" href="static/assets/css/katex.min.css">      
-    <script src="static/assets/js/external/katex.min.js"></script>
-    <script src="static/assets/js/external/auto-render.min.js"></script>
-    <script src="static/assets/js/external/katex_index.umd.min.js"></script>
+    <link rel="stylesheet" href="assets/css/katex.min.css">      
+    <script src="assets/js/external/katex.min.js"></script>
+    <script src="assets/js/external/auto-render.min.js"></script>
+    <script src="assets/js/external/katex_index.umd.min.js"></script>
 
     <!-- Highlight (code) -->
-    <script src="static/assets/js/external/md-hl_index.umd.js"></script>
-    <link rel="stylesheet" href="static/assets/css/md-highlight.css" />
-    <script src="static/assets/js/external/highlight.js"></script>
+    <script src="assets/js/external/md-hl_index.umd.js"></script>
+    <link rel="stylesheet" href="assets/css/md-highlight.css" />
+    <script src="assets/js/external/highlight.js"></script>
 
     <!-- Embed on share -->
     <meta property="og:title" content="down-c0nn3ct" />
@@ -52,14 +56,28 @@
         </div>
     </header>
 
+
     <div id="content-div" class="container-fluid content">
         <div class="row flex-column flex-md-row h-100">
             <div class="col-12 col-md-6 h-100 p-0">
                 <div id="editor-buttons" class="editor-top-bar">
-                    <button id="previewToggle" class="btn btn-outline-light d-md-none" title="Toggle preview"><img id="eyeimg" src="static/assets/img/eyeclose.png"></button>
-                    <button id="copyButton" class="btn btn-outline-light" title="Copy content"><img src="static/assets/img/copy.png"></button>
-                    <button id="dlButton" class="btn btn-outline-light" title="Download content"><img src="static/assets/img/dl.png"></button>
-                    <button id="importButton" class="btn btn-outline-light" title="Import file"><img src="static/assets/img/import.png"></button>
+                    <button id="previewToggle" class="btn btn-outline-light d-md-none" title="Toggle preview"><img id="eyeimg" src="assets/img/eyeclose.png"></button>
+                    <button id="copyButton" class="btn btn-outline-light" title="Copy content"><img src="assets/img/copy.png"></button>
+                    <button id="dlButton" class="btn btn-outline-light" title="Download content"><img src="assets/img/dl.png"></button>
+                    <button id="importButton" class="btn btn-outline-light" title="Import file"><img src="assets/img/import.png"></button>
+
+                    <div class="button-group-h4sh">
+                        <form id="saveForm" method="POST">
+                            <input type="hidden" name="editor_content" id="editor_content">
+                            <button id="saveh4shTech" class="btn btn-outline-light">Share with H4sh Tech™ v2</button>
+                        </form>
+                        <form id="openForm" method="POST">
+                            <input type="hidden" name="hash_value" id="hash_value">
+                            <button id="openh4shTech" class="btn btn-outline-light">Open from H4sh Tech™ v2</button>
+                        </form>
+
+
+                    </div>
 
                 </div>
 
@@ -147,7 +165,7 @@ embedded images:
 
 
     <!-- Main Script ! -->
-    <script src="static/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 

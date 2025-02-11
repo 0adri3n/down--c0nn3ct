@@ -5,35 +5,23 @@
 An online MarkDown editor &amp; previewer
 </p>
 
-# Want it locally ?
+# ❓ How to use it 
 
-## Installation & Setup
+<h2>You can find some documentation <a href="https://0adri3n.github.io/down--c0nn3ct/documentation/index.html">here</a> to get some help !</h2>
+
+# 🏠 Want it locally ?
+
+## 🔨 Installation & Setup
 
 <h2>Step 1 :</h2>
 
-Download last release <a href="https://github.com/0adri3n/down--c0nn3ct/releases/tag/v1.0">here</a> and unzip it!
+Download the lastest release <a href="https://github.com/0adri3n/down--c0nn3ct/releases">here</a> and unzip it!
 
 <h2>Step 2 :</h2>
 
-Install modules :
-```
-pip install -r requirements.txt
-```
-
-<h2>Step 3 :</h2>
-
-Edit connection settings to the db in ```app.py``` :
+Simply open ```index.html```
 
 ![image](https://github.com/0adri3n/down--c0nn3ct/assets/62818208/f77ad116-678d-495a-b992-18ff02214f6b)
-
-
-## Usage
-
-Just start the server !
-
-```
-python app.py
-```
 
 ## Special note
 

@@ -111,7 +111,7 @@ footer {
     }
 
     #saveh4shTech, #openh4shTech{
-        width: 140px !important;
+        width: 170px !important;
         font-size: 11px !important;
     }
 
@@ -150,9 +150,10 @@ footer {
 
 
 #saveh4shTech, #openh4shTech{
-    width: 150px;
+    width: 170px;
     font-size: 12px;
     height: 30px;
     text-align: center;
     margin-right: auto;
 }
+

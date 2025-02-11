@@ -83,6 +83,10 @@ editor.getSession().on("change", renderMD);
 
 window.addEventListener("load", renderMD);
 
+const urlParams = new URLSearchParams(window.location.search);
+const h4sh = urlParams.get("h4sh");
+
+
 // Toggle mode (phone only)
 
 var isPreviewMode = false;
@@ -198,37 +202,53 @@ window.addEventListener("beforeunload", function (e) {
 });
 
 
-// Bypass confirmation if Save or Open with H4sh Tech
-
-function bypassConf() {
-  isSafeToLeave = true;
-  setTimeout(() => {
-    isSafeToLeave = false;
-  }, 1000);
+// Compression avec LZMA et Base58
+function compressMarkdown(md, callback) {
+  LZMA.compress(md, 9, (compressed) => {
+    const encoded = Base58.encode(new Uint8Array(compressed));
+    callback(encoded);
+  });
 }
 
-// Saving with H4sh Tech
-function saveContent() {
-  
-  bypassConf();
-
-  var markdownContent = editor.getValue(); 
-  document.getElementById("editor_content").value = markdownContent;
-  document.getElementById("saveForm").submit();
-
+// Décompression avec LZMA et Base58
+function decompressMarkdown(encoded, callback) {
+  const compressed = new Uint8Array(Base58.decode(encoded));
+  LZMA.decompress(compressed, (decompressed) => {
+    callback(decompressed);
+  });
 }
 
-// Open from H4sh Tech
+// 🔗 Partage avec prompt()
+function shareContent() {
+  var markdownContent = editor.getValue();
+  compressMarkdown(markdownContent, (compressed) => {
+    prompt("Hash compressé (copiez-le) :", compressed);
+  });
+}
+
+// 📤 Ouvrir un document via un hash compressé
 function openContent() {
-  const hash = prompt("Enter the hash linked to the file :");
+  let hash = prompt("Entrez votre hash compressé :");
   if (hash) {
-    bypassConf();
-
-    document.getElementById("hash_value").value = hash;
-    document.getElementById("openForm").submit();
-    
+    decompressMarkdown(hash, (decompressed) => {
+      editor.setValue(decompressed);
+      renderMD();
+    });
   }
 }
+
+
+// Ajout des événements aux boutons
+document.getElementById("saveh4shTech").addEventListener("click", function (e) {
+  e.preventDefault();
+  shareContent();
+});
+
+document.getElementById("openh4shTech").addEventListener("click", function (e) {
+  e.preventDefault();
+  openContent();
+});
+
 
 // PDF Export
 function addScript() {
@@ -249,5 +269,24 @@ function addScript() {
 
 }
 window.addEventListener("load", addScript);
+
+window.addEventListener("load", function () {
+  // Vérifier si le paramètre "h4sh" est dans l'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const h4sh = urlParams.get("h4sh");
+
+  if (h4sh) {
+    // Si un hash est présent, on décompresse le contenu et on l'affiche dans l'éditeur
+    decompressMarkdown(h4sh, function (decompressed) {
+      editor.setValue(decompressed);
+      renderMD(); // Mettre à jour la vue
+    });
+  }
+});
+
+
+
+
+
 
 
