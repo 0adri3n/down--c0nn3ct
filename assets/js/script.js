@@ -222,13 +222,13 @@ function decompressMarkdown(encoded, callback) {
 function shareContent() {
   var markdownContent = editor.getValue();
   compressMarkdown(markdownContent, (compressed) => {
-    prompt("Hash compressé (copiez-le) :", compressed);
+    prompt("Compressed hash (copy it!) :", compressed);
   });
 }
 
 // 📤 Ouvrir un document via un hash compressé
 function openContent() {
-  let hash = prompt("Entrez votre hash compressé :");
+  let hash = prompt("Paste a compressed hash :");
   if (hash) {
     decompressMarkdown(hash, (decompressed) => {
       editor.setValue(decompressed);
