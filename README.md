@@ -1,9 +1,10 @@
-<p align="center"><img src="https://github.com/0adri3n/down--c0nn3ct/assets/62818208/4316f14e-3cd2-41aa-a16f-f4d53a2926f2"></p>
-
 # <p align="center"> down-c0nn3ct </p>
 <p align="center">
 An online MarkDown editor &amp; previewer
 </p>
+
+<p align="center"><img src="https://github.com/user-attachments/assets/04ecb470-fe50-4961-bc99-d11d6e1a57bd"></p>
+
 
 # ❓ How to use it 
 
@@ -21,7 +22,6 @@ Download the lastest release <a href="https://github.com/0adri3n/down--c0nn3ct/r
 
 Simply open ```index.html```
 
-![image](https://github.com/0adri3n/down--c0nn3ct/assets/62818208/f77ad116-678d-495a-b992-18ff02214f6b)
 
 ## Special note
 
