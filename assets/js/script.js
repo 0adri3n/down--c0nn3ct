@@ -202,7 +202,7 @@ window.addEventListener("beforeunload", function (e) {
 });
 
 
-// Compression avec LZMA et Base58
+// Compress with LZMA + Base58
 function compressMarkdown(md, callback) {
   LZMA.compress(md, 9, (compressed) => {
     const encoded = Base58.encode(new Uint8Array(compressed));
@@ -210,7 +210,7 @@ function compressMarkdown(md, callback) {
   });
 }
 
-// Décompression avec LZMA et Base58
+// Decompress with LZMA + Base58
 function decompressMarkdown(encoded, callback) {
   const compressed = new Uint8Array(Base58.decode(encoded));
   LZMA.decompress(compressed, (decompressed) => {
@@ -218,7 +218,7 @@ function decompressMarkdown(encoded, callback) {
   });
 }
 
-// 🔗 Partage avec prompt()
+// Share
 function shareContent() {
   var markdownContent = editor.getValue();
   compressMarkdown(markdownContent, (compressed) => {
@@ -226,7 +226,7 @@ function shareContent() {
   });
 }
 
-// 📤 Ouvrir un document via un hash compressé
+// Open with hash
 function openContent() {
   let hash = prompt("Paste a compressed hash :");
   if (hash) {
@@ -237,8 +237,6 @@ function openContent() {
   }
 }
 
-
-// Ajout des événements aux boutons
 document.getElementById("saveh4shTech").addEventListener("click", function (e) {
   e.preventDefault();
   shareContent();
@@ -271,15 +269,15 @@ function addScript() {
 window.addEventListener("load", addScript);
 
 window.addEventListener("load", function () {
-  // Vérifier si le paramètre "h4sh" est dans l'URL
+  // Check if parameter "h4sh" is in url
   const urlParams = new URLSearchParams(window.location.search);
   const h4sh = urlParams.get("h4sh");
 
   if (h4sh) {
-    // Si un hash est présent, on décompresse le contenu et on l'affiche dans l'éditeur
+    // If hash, decompress and open it
     decompressMarkdown(h4sh, function (decompressed) {
       editor.setValue(decompressed);
-      renderMD(); // Mettre à jour la vue
+      renderMD(); // Update MD
     });
   }
 });
