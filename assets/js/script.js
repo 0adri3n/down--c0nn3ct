@@ -99,11 +99,11 @@ function togglePreview() {
   if (!isPreviewMode) {
     outputDiv.style.transform = "translateX(-100%)";
     editorDiv.style.display = "none";
-    eyeimgDiv.src = "assets/img/eye.png";
+    eyeimgDiv.src = "../img/eye.png";
   } else {
     editorDiv.style.display = "block";
     outputDiv.style.transform = "translateX(0%)";
-    eyeimgDiv.src = "assets/img/eyeclose.png";
+    eyeimgDiv.src = "../img/eyeclose.png";
   }
 
   isPreviewMode = !isPreviewMode;
@@ -130,7 +130,7 @@ function WidthChange(mq) {
     var eyeimgDiv = document.getElementById("eyeimg");
     outputDiv.style.transform = "translateX(0%)";
     editorDiv.style.display = "block";
-    eyeimgDiv.src = "assets/img/eyeclose.png";
+    eyeimgDiv.src = "../img/eyeclose.png";
   }
 }
 
